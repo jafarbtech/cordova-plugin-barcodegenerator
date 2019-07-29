@@ -1,18 +1,17 @@
 # BarcodeGenerator
-## Introduction
+Barcode Generator is a cordova plugin that allows generation of barcodes like QRCODE, CODE128 etc.
+
+## About
 This project is a fork of the original project from Attendee which I would like to thank for his work, it saved me a lot of time.
 
 The Android part of this plugin has been partially rewritten to enhences features and correct some bugs of the original project.
-
-By now the iOS part has not been modified nor tested.
-
-Barcode Generator is a cordova plugin that allows generation of barcodes like QRCODE, CODE128 etc.
-### This plugin is generate only Barcode type QRCODE
 
 ## Supported Platforms
 
 * Android Version >= 4.0
 * iOS Version >= 8.0 (Not tested)
+
+### By now the iOS part has not been modified nor tested.
 
 ## Installation
 First download the last stable version (or master tree) from git in a folder called 'cordova-plugins':
@@ -30,8 +29,18 @@ ionic cordova plugin add ../path-to-folder/cordova-plugins/BarcodeGenerator
 ``````
 Done!
 
+## Features
+* Content
+* Height and width
+* Foreground color
+* Background color
+* BarcodeType
+  * CODE_128
+  * QR_CODE
+
 ## Usage
 ### Cordova
+Following code is issued from the original fork, untested
 ``````
 in *.js that you want to use this.
 var success = function(message) { alert(message); };
