@@ -1,4 +1,4 @@
-# cordova-plugin-barcode-generator
+# BarcodeGenerator
 ## Introduction
 This project is a fork of the original project from Attendee which I would like to thank for his work, it saved me a lot of time.
 
@@ -18,15 +18,15 @@ Barcode Generator is a cordova plugin that allows generation of barcodes like QR
 First download the last stable version (or master tree) from git in a folder called 'cordova-plugins':
 ``````
 cd cordova-plugins
-git clone https://github.com/fefc/cordova-plugin-barcode-generator.git
+git clone https://github.com/fefc/BarcodeGenerator.git
 ``````
 Now go to your cordova project folder and install the plugin as follows:
 ``````
-cordova plugin add ../path-to-folder/cordova-plugins/cordova-plugin-barcode-generator
+cordova plugin add ../path-to-folder/cordova-plugins/BarcodeGenerator
 ``````
 If you are using ionic framework:
 ``````
-ionic cordova plugin add ../path-to-folder/cordova-plugins/cordova-plugin-barcode-generator
+ionic cordova plugin add ../path-to-folder/cordova-plugins/BarcodeGenerator
 ``````
 Done!
 
