@@ -1,8 +1,26 @@
+var argscheck = require('cordova/argscheck'),
+    exec = require('cordova/exec');
 
-var BarcodeGeneratorPlugin = {
-	generate: function(successCallback, errorCallback,text,height,width,color,bgColor){
-    		cordova.exec(successCallback, errorCallback,'BarcodeGenerator','barcodeGenerator',[text,height,width,color,bgColor])
-    	}
-}
+var barcodegenerator_exports = {};
 
-module.exports = BarcodeGeneratorPlugin;
+barcodegenerator_exports.generate = function(options, success, error) {
+    var defaults = {
+        'content': 'DefaultBarcode',
+	    'height': 128,
+		'width': 128,
+        'format': 11,
+        'foregroundColor': '#000000',
+        'backgroundColor': '#FFFFFF'
+	};
+
+    // Merge optional settings into defaults.
+    for (var key in defaults) {
+        if (typeof options[key] !== 'undefined') {
+            defaults[key] = options[key];
+        }
+    }
+
+    exec(success, error, 'BarcodeGenerator', 'generate', [ defaults ]);
+};
+
+module.exports = barcodegenerator_exports;
