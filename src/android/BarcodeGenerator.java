@@ -2,86 +2,144 @@ package com.attendee.barcodegenerator;
 
 import android.graphics.Bitmap;
 import android.util.Base64;
-import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.util.EnumMap;
+import java.util.Map;
+
+import static android.graphics.Color.parseColor;
 
 /**
  * Created by Olipsist on 3/29/16 AD.
  */
 public class BarcodeGenerator extends CordovaPlugin {
+    private static final String ACTION_GENERATE = "generate";
 
-    public final static int WHITE = 0xFFFFFFFF;
-    public final static int BLACK = 0xFF000000;
+    private static final String OPT_CONTENT = "content";
+    private static final String OPT_HEIGHT = "height";
+    private static final String OPT_WIDTH = "width";
+    private static final String OPT_FOREGROUND_COLOR = "foregroundColor";
+    private static final String OPT_BACKGROUND_COLOR = "backgroundColor";
+    private static final String OPT_FORMAT = "format";
+
+    private static final int WHITE = 0xFFFFFFFF;
+    private static final int BLACK = 0xFF000000;
+
+    private static final BarcodeFormat[] BARCODE_FORMATS = {
+            BarcodeFormat.AZTEC,            // 0
+            BarcodeFormat.CODABAR,          // 1
+            BarcodeFormat.CODE_39,          // 2
+            BarcodeFormat.CODE_93,          // 3
+            BarcodeFormat.CODE_128,         // 4
+            BarcodeFormat.DATA_MATRIX,      // 5
+            BarcodeFormat.EAN_8,            // 6
+            BarcodeFormat.EAN_13,           // 7
+            BarcodeFormat.ITF,              // 8
+            BarcodeFormat.MAXICODE,         // 9
+            BarcodeFormat.PDF_417,          // 10
+            BarcodeFormat.QR_CODE,          // 11
+            BarcodeFormat.RSS_14,           // 12
+            BarcodeFormat.RSS_EXPANDED,     // 13
+            BarcodeFormat.UPC_A,            // 14
+            BarcodeFormat.UPC_E,            // 15
+            BarcodeFormat.UPC_EAN_EXTENSION // 16
+        };
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray inputs, CallbackContext callbackContext) throws JSONException {
+        PluginResult result = null;
 
-        if (action.equals("barcodeGenerator")){
-
-            String data = args.getString(0);
-            int h = args.getInt(1);
-            int w = args.getInt(2);
-            int color = WHITE;
-            int bgColor = BLACK;
-            if(args.getString(3) != "null"){
-                color = (int) Long.parseLong(args.getString(3),16);
-            }
-            if (args.getString(4) != "null"){
-                bgColor = (int) Long.parseLong(args.getString(4),16);
-            }
-
-            try {
-                this.generateBarcode(data, h, w, color, bgColor, callbackContext);
-            } catch (WriterException e) {
-                e.printStackTrace();
-            }
-            return true;
+        if (ACTION_GENERATE.equals(action)){
+            result = generate(inputs, callbackContext);
         }
+
+        if(result != null) callbackContext.sendPluginResult( result );
 
         return false;
     }
 
+    private PluginResult generate(JSONArray inputs, CallbackContext callbackContext) {
+        JSONObject options = inputs.optJSONObject(0);
 
-    private void generateBarcode(String data, int hight, int width, int color, int bgColor, CallbackContext callbackContext) throws WriterException {
-        BitMatrix result = null;
-        try{
-            result = new MultiFormatWriter().encode(data, BarcodeFormat.CODE_128,width,hight,null);
-        } catch (IllegalArgumentException e){
+        if(options == null) return null;
 
+        String content = options.optString(OPT_CONTENT, "BarcodeGenerator");
+        int height = options.optInt(OPT_HEIGHT, 512);
+        int width = options.optInt(OPT_WIDTH, 512);
+        int color = BLACK;
+        int bgColor = WHITE;
+        int format = options.optInt(OPT_FORMAT, 11);
+
+        if (format < 0 || format > BARCODE_FORMATS.length -1) {
+            format = 11;
         }
 
-        int w = result.getWidth();
-        int h = result.getHeight();
-        int[] pixels = new int[w * h];
-        for (int y = 0; y < h; y++) {
-            int offset = y * w;
-            for (int x = 0; x < w; x++) {
-                pixels[offset + x] = result.get(x, y) ? color : bgColor;
+        try {
+            color = parseColor(options.optString(OPT_FOREGROUND_COLOR, "#000000"));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bgColor = parseColor(options.optString(OPT_BACKGROUND_COLOR, "#FFFFFF"));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            callbackContext.success(this.createBarcode(content, height, width, color, bgColor, BARCODE_FORMATS[format]));
+        } catch (WriterException e) {
+            e.printStackTrace();
+            callbackContext.error("Error in createBarcode function BarcodeGenerator.java");
+        }
+
+        return null;
+    }
+
+    private String createBarcode(String data, int height, int width, int color, int bgColor, BarcodeFormat format) throws WriterException {
+
+        //https://stackoverflow.com/questions/43768886/android-qr-bitmap-need-help-to-remove-margin
+        Map<EncodeHintType, Object> hints = new EnumMap<>(EncodeHintType.class);
+        hints.put(EncodeHintType.MARGIN, 0);
+
+        BitMatrix barcode = new MultiFormatWriter().encode(data, format, width, height, hints);
+
+        int barcodeWidth = barcode.getWidth();
+        int barcodeHeight = barcode.getHeight();
+
+        int[] pixels = new int[barcodeWidth * barcodeHeight];
+
+        for (int y = 0; y < barcodeHeight; y++) {
+            int offset = y * barcodeWidth;
+
+            for (int x = 0; x < barcodeWidth; x++) {
+                pixels[offset + x] = barcode.get(x, y) ? color : bgColor;
             }
         }
-        Bitmap bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        bitmap.setPixels(pixels, 0, 300, 0, 0, w, h);
-        int cropWidth = w/5;
-        Bitmap resize = Bitmap.createBitmap(bitmap, cropWidth/2, 0,w-cropWidth,h);
 
-        String base64Image =  bitmapToBase64(resize);
+        Bitmap bitmap = Bitmap.createBitmap(barcodeWidth, barcodeHeight, Bitmap.Config.ARGB_8888);
+        bitmap.setPixels(pixels, 0, barcodeWidth, 0, 0, barcodeWidth, barcodeHeight);
 
-        if (data!=null && data.length() > 0 && base64Image.length()>0){
-            callbackContext.success(base64Image);
-        }else {
-            callbackContext.error("ERROR CANNOT GENERATION");
+        String base64Image =  bitmapToBase64(bitmap);
+
+        if (data != null && data.length() > 0 && base64Image.length() > 0){
+            return base64Image;
         }
+
+        return null;
     }
 
 
