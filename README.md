@@ -60,10 +60,18 @@ Done!
   * format 15 = UPC_E
   * format 16 = UPC_EAN_EXTENSION
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Barcode Type  | Android | iOS | Browser |
+| ------------- | ------------- | ------------- | ------------- |
+| AZTEC  | Content Cell  | Content Cell  | Content Cell  |
+| CODABAR  | Content Cell  | Content Cell  | Content Cell  |
+| CODE_39  | Content Cell  | Content Cell  | Content Cell  |
+| CODE_128  | Content Cell  | Content Cell  | Content Cell  |
+| DATA_MATRIX  | Content Cell  | Content Cell  | Content Cell  |
+| EAN_8  | Content Cell  | Content Cell  | Content Cell  |
+| ITF  | Content Cell  | Content Cell  | Content Cell  |
+| MAXICODE  | Content Cell  | Content Cell  | Content Cell  |
+| PDF_417  | Content Cell  | Content Cell  | Content Cell  |
+
 
 ## Usage
 ### Cordova
