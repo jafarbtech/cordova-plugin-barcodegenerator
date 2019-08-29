@@ -6,6 +6,8 @@ This project is a fork of the original project from Attendee which I would like 
 
 The Android part of this plugin has been partially rewritten to enhences features and correct some bugs of the original project.
 
+Android part is using google zxing library.
+
 ## Supported Platforms
 
 * Android Version >= 4.0
@@ -35,9 +37,24 @@ Done!
 * Foreground color
 * Background color
 * BarcodeType
-  * CODE_128
-  * QR_CODE
-
+  * format  0 = AZTEC
+  * format  1 = CODABAR
+  * format  2 = CODE_39
+  * format  3 = CODE_93
+  * format  4 = CODE_128
+  * format  5 = DATA_MATRIX
+  * format  6 = EAN_8
+  * format  7 = EAN_13
+  * format  8 = ITF
+  * format  9 = MAXICODE
+  * format 10 = PDF_417
+  * format 11 = QR_CODE
+  * format 12 = RSS_14
+  * format 13 = RSS_EXPANDED
+  * format 14 = UPC_A
+  * format 15 = UPC_E
+  * format 16 = UPC_EAN_EXTENSION
+  
 ## Usage
 ### Cordova
 Following code is issued from the original fork, untested
@@ -60,6 +77,7 @@ BarcodeGenerator.generate({
                             content: 'my barcode content',
                             height: 512,
                             width: 512,
+                            format: 11, //Set Features for desired format
                             foregroundColor: '#000000',
                             backgroundColor: '#FFFFFF'
                           },
