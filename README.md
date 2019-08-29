@@ -6,11 +6,16 @@ This project is a fork of the original project from Attendee which I would like 
 
 The Android part of this plugin has been partially rewritten to enhences features and correct some bugs of the original project.
 
+A minimal browser version has been added and supports generator of QRCodes thanks to the qrcodejs library developped by davidshimjs:
+
+https://davidshimjs.github.io/qrcodejs/
+
 Android part is using google zxing library.
 
 ## Supported Platforms
 
 * Android Version >= 4.0
+* HTML5 browsers
 * iOS Version >= 8.0 (Not tested)
 
 ### By now the iOS part has not been modified nor tested.
