@@ -1,27 +1,44 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="com.attendee.barcodegenerator" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-barcodegenerator" version="0.1.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
 	<name>BarcodeGenerator</name>
-	<DESCRIPTION>Plugin for generate Barcode</DESCRIPTION>
+	<description>Barcode Generator is a cordova plugin that allows generation of barcodes like QRCODE, CODE128 etc.</description>
+	<author>fefc - fefc.dev@gmail.com - https://github.com/fefc fork from https://github.com/Attendee</author>
+	<license>MIT</license>
+	<keywords>cordova,barcode,generator</keywords>
+	<repo>https://github.com/fefc/BarcodeGenerator.git</repo>
 	<js-module name="BarcodeGenerator" src="www/BarcodeGenerator.js">
-		<clobbers target="window.BarcodeGenerator" />
+		<clobbers target="BarcodeGenerator"/>
 	</js-module>
 	<platform name="android">
 		<config-file parent="/*" target="res/xml/config.xml">
 			<feature name="BarcodeGenerator">
-				<param name="android-package" value="com.attendee.barcodegenerator.BarcodeGenerator" />
+				<param name="android-package" value="com.attendee.barcodegenerator.BarcodeGenerator"/>
 			</feature>
 		</config-file>
-		<config-file parent="/*" target="AndroidManifest.xml" />
-		<source-file src="src/android/BarcodeGenerator.java" target-dir="src/com/attendee/barcodegenerator" />
+		<config-file parent="/*" target="AndroidManifest.xml"/>
+		<source-file src="src/android/BarcodeGenerator.java" target-dir="src/com/attendee/barcodegenerator"/>
 		<source-file src="src/android/core-3.2.1.jar" target-dir="libs"/>
 	</platform>
 	<platform name="ios">
-  		<config-file target="config.xml" parent="/*">
+  		<config-file parent="/*" target="config.xml">
     		<feature name="BarcodeGenerator">
-      			<param name="ios-package" value="BarcodeGenerator" />
+      			<param name="ios-package" value="BarcodeGenerator"/>
     		</feature>
   		</config-file>
   		<header-file src="src/ios/BarcodeGenerator.h" target-dir="src/com/attendee/barcodegenerator"/>
   		<source-file src="src/ios/BarcodeGenerator.m" target-dir="src/com/attendee/barcodegenerator"/>
 	</platform>
+	<platform name="browser">
+		<config-file parent="/*" target="config.xml">
+				<feature name="BarcodeGenerator">
+						<param name="browser-package" value="BarcodeGenerator"/>
+				</feature>
+		</config-file>
+		<js-module name="QRCode" src="src/browser/qrcode.min.js">
+			<clobbers target="QRCode"/>
+		</js-module>
+		<js-module src="src/browser/BarcodeGenerator.js" name="BarcodeGeneratorProxy">
+				<runs/>
+		</js-module>
+</platform>
 </plugin>
