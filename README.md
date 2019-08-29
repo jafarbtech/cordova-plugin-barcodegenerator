@@ -24,15 +24,15 @@ Android part is using google zxing library.
 First download the last stable version (or master tree) from git in a folder called 'cordova-plugins':
 ``````
 cd cordova-plugins
-git clone https://github.com/fefc/BarcodeGenerator.git
+git clone https://github.com/fefc/cordova-plugin-barcodegenerator.git
 ``````
 Now go to your cordova project folder and install the plugin as follows:
 ``````
-cordova plugin add ../path-to-folder/cordova-plugins/BarcodeGenerator
+cordova plugin add ../path-to-folder/cordova-plugins/cordova-plugin-barcodegenerator
 ``````
 If you are using ionic framework:
 ``````
-ionic cordova plugin add ../path-to-folder/cordova-plugins/BarcodeGenerator
+ionic cordova plugin add ../path-to-folder/cordova-plugins/cordova-plugin-barcodegenerator
 ``````
 Done!
 
