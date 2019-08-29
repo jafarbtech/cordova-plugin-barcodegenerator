@@ -6,8 +6,8 @@ var barcodegenerator_exports = {};
 barcodegenerator_exports.generate = function(options, success, error) {
     var defaults = {
         'content': 'DefaultBarcode',
-	    'height': 128,
-		'width': 128,
+	       'height': 128,
+		    'width': 128,
         'format': 11,
         'foregroundColor': '#000000',
         'backgroundColor': '#FFFFFF'
