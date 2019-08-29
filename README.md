@@ -59,7 +59,12 @@ Done!
   * format 14 = UPC_A
   * format 15 = UPC_E
   * format 16 = UPC_EAN_EXTENSION
-  
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
 ## Usage
 ### Cordova
 Following code is issued from the original fork, untested
