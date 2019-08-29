@@ -6,7 +6,7 @@ This project is a fork of the original project from Attendee which I would like 
 
 The Android part of this plugin has been partially rewritten to enhences features and correct some bugs of the original project.
 
-A minimal browser version has been added and supports generator of QRCodes thanks to the qrcodejs library developped by davidshimjs:
+A minimal browser version has been added and supports generation of QRCodes thanks to the qrcodejs library developped by davidshimjs:
 
 https://davidshimjs.github.io/qrcodejs/
 
