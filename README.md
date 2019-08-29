@@ -62,15 +62,23 @@ Done!
 
 | Barcode Type  | Android | iOS | Browser |
 | ------------- | ------------- | ------------- | ------------- |
-| AZTEC  | Content Cell  | Content Cell  | Content Cell  |
-| CODABAR  | Content Cell  | Content Cell  | Content Cell  |
-| CODE_39  | Content Cell  | Content Cell  | Content Cell  |
-| CODE_128  | Content Cell  | Content Cell  | Content Cell  |
-| DATA_MATRIX  | Content Cell  | Content Cell  | Content Cell  |
-| EAN_8  | Content Cell  | Content Cell  | Content Cell  |
-| ITF  | Content Cell  | Content Cell  | Content Cell  |
-| MAXICODE  | Content Cell  | Content Cell  | Content Cell  |
-| PDF_417  | Content Cell  | Content Cell  | Content Cell  |
+| AZTEC        | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| CODABAR      | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| CODE_39      | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| CODE_128     | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| DATA_MATRIX  | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| EAN_8        | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| ITF          | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| MAXICODE     | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| PDF_417      | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| QR_CODE      | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| RSS_14       | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| RSS_EXPANDED | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| UPC_A        | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| UPC_E        | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| UPC_EAN_EXTENSION | :heavy_check_mark:  | Content Cell  | Content Cell  |
+
+
 
 
 ## Usage
