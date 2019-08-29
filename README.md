@@ -62,21 +62,21 @@ Done!
 
 | Barcode Type  | Android | iOS | Browser |
 | ------------- | ------------- | ------------- | ------------- |
-| AZTEC        | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| CODABAR      | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| CODE_39      | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| CODE_128     | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| DATA_MATRIX  | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| EAN_8        | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| ITF          | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| MAXICODE     | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| PDF_417      | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| QR_CODE      | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| RSS_14       | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| RSS_EXPANDED | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| UPC_A        | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| UPC_E        | :heavy_check_mark:  | Content Cell  | Content Cell  |
-| UPC_EAN_EXTENSION | :heavy_check_mark:  | Content Cell  | Content Cell  |
+| AZTEC        | :heavy_check_mark:  | :grey_question: | :x: |
+| CODABAR      | :heavy_check_mark:  | :grey_question: | :x: |
+| CODE_39      | :heavy_check_mark:  | :grey_question: | :x: |
+| CODE_128     | :heavy_check_mark:  | :grey_question: | :x: |
+| DATA_MATRIX  | :heavy_check_mark:  | :grey_question: | :x: |
+| EAN_8        | :heavy_check_mark:  | :grey_question: | :x: |
+| ITF          | :heavy_check_mark:  | :grey_question: | :x: |
+| MAXICODE     | :heavy_check_mark:  | :grey_question: | :x: |
+| PDF_417      | :heavy_check_mark:  | :grey_question: | :x: |
+| QR_CODE      | :heavy_check_mark:  | :grey_question: | :heavy_check_mark: |
+| RSS_14       | :heavy_check_mark:  | :grey_question: | :x: |
+| RSS_EXPANDED | :heavy_check_mark:  | :grey_question: | :x: |
+| UPC_A        | :heavy_check_mark:  | :grey_question: | :x: |
+| UPC_E        | :heavy_check_mark:  | :grey_question: | :x: |
+| UPC_EAN_EXTENSION | :heavy_check_mark:  | :grey_question: | :x: |
 
 
 
