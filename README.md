@@ -36,13 +36,17 @@ ionic cordova plugin add ../path-to-folder/cordova-plugins/cordova-plugin-barcod
 ``````
 Done!
 
-## Features
-* Content
-* Height and width
-* Foreground color
-* Background color
-* BarcodeType
+## Parameters
+| Parameter | Description | Default value |
+| --------- | ----------- | ------------- |
+| content | String that will be encoded as a barcode | DefaultBarcode |
+| height  | Height in pixels | 128 |
+| width   | Width in pixels  | 128 |
+| foregroundColor | Color of the bars in HTML | #000000 |
+| backgroundColor | Background color in HTML  | #FFFFFF |
+| format  | Desired barcode type   | 11 |
 
+## Supported barcodes
 | Barcode Type | Enum value | Android | iOS | Browser |
 | ------------ | ---------- | ------------- | ------------- | ------------- |
 | AZTEC             |  0 | :heavy_check_mark:  | :grey_question: | :x: |
