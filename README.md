@@ -42,41 +42,26 @@ Done!
 * Foreground color
 * Background color
 * BarcodeType
-  * format  0 = AZTEC
-  * format  1 = CODABAR
-  * format  2 = CODE_39
-  * format  3 = CODE_93
-  * format  4 = CODE_128
-  * format  5 = DATA_MATRIX
-  * format  6 = EAN_8
-  * format  7 = EAN_13
-  * format  8 = ITF
-  * format  9 = MAXICODE
-  * format 10 = PDF_417
-  * format 11 = QR_CODE
-  * format 12 = RSS_14
-  * format 13 = RSS_EXPANDED
-  * format 14 = UPC_A
-  * format 15 = UPC_E
-  * format 16 = UPC_EAN_EXTENSION
 
-| Barcode Type  | Android | iOS | Browser |
-| ------------- | ------------- | ------------- | ------------- |
-| AZTEC        | :heavy_check_mark:  | :grey_question: | :x: |
-| CODABAR      | :heavy_check_mark:  | :grey_question: | :x: |
-| CODE_39      | :heavy_check_mark:  | :grey_question: | :x: |
-| CODE_128     | :heavy_check_mark:  | :grey_question: | :x: |
-| DATA_MATRIX  | :heavy_check_mark:  | :grey_question: | :x: |
-| EAN_8        | :heavy_check_mark:  | :grey_question: | :x: |
-| ITF          | :heavy_check_mark:  | :grey_question: | :x: |
-| MAXICODE     | :heavy_check_mark:  | :grey_question: | :x: |
-| PDF_417      | :heavy_check_mark:  | :grey_question: | :x: |
-| QR_CODE      | :heavy_check_mark:  | :grey_question: | :heavy_check_mark: |
-| RSS_14       | :heavy_check_mark:  | :grey_question: | :x: |
-| RSS_EXPANDED | :heavy_check_mark:  | :grey_question: | :x: |
-| UPC_A        | :heavy_check_mark:  | :grey_question: | :x: |
-| UPC_E        | :heavy_check_mark:  | :grey_question: | :x: |
-| UPC_EAN_EXTENSION | :heavy_check_mark:  | :grey_question: | :x: |
+| Barcode Type | Enum value | Android | iOS | Browser |
+| ------------ | ---------- | ------------- | ------------- | ------------- |
+| AZTEC             |  0 | :heavy_check_mark:  | :grey_question: | :x: |
+| CODABAR           |  1 | :heavy_check_mark:  | :grey_question: | :x: |
+| CODE_39           |  2 | :heavy_check_mark:  | :grey_question: | :x: |
+| CODE_93           |  3 | :heavy_check_mark:  | :grey_question: | :x: |
+| CODE_128          |  4 | :heavy_check_mark:  | :grey_question: | :x: |
+| DATA_MATRIX       |  5 | :heavy_check_mark:  | :grey_question: | :x: |
+| EAN_8             |  6 | :heavy_check_mark:  | :grey_question: | :x: |
+| EAN_13            |  7 | :heavy_check_mark:  | :grey_question: | :x: |
+| ITF               |  8 | :heavy_check_mark:  | :grey_question: | :x: |
+| MAXICODE          |  9 | :heavy_check_mark:  | :grey_question: | :x: |
+| PDF_417           | 10 | :heavy_check_mark:  | :grey_question: | :x: |
+| QR_CODE           | 11 | :heavy_check_mark:  | :grey_question: | :heavy_check_mark: |
+| RSS_14            | 12 | :heavy_check_mark:  | :grey_question: | :x: |
+| RSS_EXPANDED      | 13 | :heavy_check_mark:  | :grey_question: | :x: |
+| UPC_A             | 14 | :heavy_check_mark:  | :grey_question: | :x: |
+| UPC_E             | 15 | :heavy_check_mark:  | :grey_question: | :x: |
+| UPC_EAN_EXTENSION | 16 | :heavy_check_mark:  | :grey_question: | :x: |
 
 
 
