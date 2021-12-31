@@ -30,7 +30,7 @@ Now go to your cordova project folder and install the plugin as follows:
 ``````
 cordova plugin add ../path-to-folder/cordova-plugins/cordova-plugin-barcodegenerator
 
-cordova plugin add https://github.com/jafarbtech/cordova-plugin-barcodegenerator
+cordova plugin add https://github.com/jafarbtech/cordova-plugin-barcodegenerator.git
 ``````
 If you are using ionic framework:
 ``````
